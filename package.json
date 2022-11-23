@@ -1,12 +1,8 @@
-
-
-
 {
   "name": "project1_solo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +18,7 @@
   },
   "homepage": "https://github.com/subeen-park/project1_solo#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^6.7.3"
   }
 }

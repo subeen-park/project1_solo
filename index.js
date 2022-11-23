@@ -1,6 +1,13 @@
 // index.js 는 백엔드 시작점이라고 생각
 // package.json 에서, script 부분 , start 하면 node 앱 시작. 시작점은 index .js
+// 몽고 db id : sube,  password : 11
+// mongodb+srv://subeen:<password>@project1solo.0yafbjz.mongodb.net/?retryWrites=true&w=majority
 
+const mongoose = require('mongoose')
+mongoose.connect('mongodb+srv://subeen:1125@project1solo.0yafbjz.mongodb.net/?retryWrites=true&w=majority',
+{ useNewUrlParser: true,
+useUnifiedTopology: true,}).then(() => console.log('MongoDB Conneted ~!~!~!'))
+.catch(err => console.log(err))
 
 const express = require('express') // express module 가져옴
 const app = express() // express function 을 이용해 새로운 app 을 만듬
