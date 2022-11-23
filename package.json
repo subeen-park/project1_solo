@@ -1,0 +1,27 @@
+
+
+
+{
+  "name": "project1_solo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subeen-park/project1_solo.git"
+  },
+  "author": "subeen-park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subeen-park/project1_solo/issues"
+  },
+  "homepage": "https://github.com/subeen-park/project1_solo#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
