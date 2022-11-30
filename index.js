@@ -4,11 +4,15 @@
 // mongodb+srv://subeen:<password>@project1solo.0yafbjz.mongodb.net/?retryWrites=true&w=majority
 // mongodb+srv://subeen:<password>@project1solo.0yafbjz.mongodb.net/?retryWrites=true&w=majority
 
+
+const config = require('./config/key');
 const { User } = require("./models/User.js")
 
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://subeen:1125@project1solo.0yafbjz.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(config.mongoURI, 
+// 비밀정보. github 에다 소스 올리면 같이 mongodb 아이디 노출되니까. 비밀정보 설정. 이부분을 따로 떼어놓는다
+// 이 파일은 git 에 올릴때 같이 올라가면 안된다.
 { useNewUrlParser: true,
 useUnifiedTopology: true,}).then(() => console.log('MongoDB Conneted ~!~!~!'))
 .catch(err => console.log(err))
@@ -38,7 +42,7 @@ app.use(bodyParser.json());
 
 
 
-app.get('/', (req,res) => res.send('Hello World!')) // root 디렉토리에오면 문자열 출력
+app.get('/', (req,res) => res.send('11월 30일!ㅎㅋ')) // root 디렉토리에오면 문자열 출력
 
 
 
@@ -46,7 +50,7 @@ app.post('/register', (req, res) => {
     // 회원 가입 할 때 필요한 정보들을 clinet 에서 가져오면
     // 그것들을 DB 에 넣어준다
 
-    const user = new User(request.body)
+    const user = new User(req.body)
 
     user.save((err, userInfo ) => { // mongodb method, req.body 정보들이 user.model에 저장됨
         if(err) return res.json({ success: false, err}) // err 전달할 때 json 형식으로 전달할 것.
@@ -57,6 +61,7 @@ app.post('/register', (req, res) => {
         return res.status(200).json({ // 정보전달 성공
             // status(200) 은 성공했다는 뜻. json 형식으로 정보전달.
             success : true
+        
         })
 
     }) 
