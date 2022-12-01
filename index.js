@@ -49,9 +49,11 @@ app.get('/', (req,res) => res.send('11월 30일!ㅎㅋ')) // root 디렉토리�
 app.post('/register', (req, res) => {
     // 회원 가입 할 때 필요한 정보들을 clinet 에서 가져오면
     // 그것들을 DB 에 넣어준다
+    // req(요청) -> 받는다. res(응답) -> 보낸다.
 
-    const user = new User(req.body)
+    const user = new User(req.body) // req.body -> post 형식으로 넘어오는 데이터를 담는다.
 
+    // save 하기 전, 비밀번호 암호화
     user.save((err, userInfo ) => { // mongodb method, req.body 정보들이 user.model에 저장됨
         if(err) return res.json({ success: false, err}) // err 전달할 때 json 형식으로 전달할 것.
         // 성공하지 못했다고 json 형식으로 전달.
